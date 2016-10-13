@@ -1,0 +1,123 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+	
+	
+
+
+int hoofdfunctie () {
+
+	char fileIn[255], fileUit[255];
+	int d, tab;
+	char kar, nextKar;
+	bool kopieer = true;
+	bool startRegel = true;
+    int telKar;
+    int telRegels;
+    int statInterval;
+    int x; 
+    int y; 
+    bool number;
+    telRegels=0;
+	telKar=0;
+	d=0;
+	
+	cout << "\nWat wilt u als Tab-grootte?\n";
+	cin >> tab;
+	cout << "\nWelk bestand wilt u als invoerbestand?\n";
+	cin >> fileIn;
+	cout << "\nWat is/wordt de naam van het uitvoerbestandt?\n";
+	cin >> fileUit; 
+	cout << "\nom de hoeveel regels wilt u de statistieken zien?\n";
+	cin >> statInterval; 
+	
+	
+	
+	ifstream invoer (fileIn, ios::in);
+	ofstream uitvoer (fileUit, ios::out);
+
+	while (!invoer.eof( )) {
+	telKar++;
+	kar = invoer.get ( );
+	nextKar = invoer.peek( );
+	kopieer = true;
+	int startTabs;
+	startTabs= d*tab;
+	
+	if ((kar == '/') && (nextKar == '/')){
+	while (!(kar == '\n')){
+		kar = invoer.get ( );
+		nextKar = invoer.peek( );
+		}
+	}
+	
+	if ((((kar == ' ')||(kar == '\t'))) && (startRegel == true)){
+	kopieer = false;
+	}
+	
+	else{
+	startRegel = false;
+	}	
+	
+
+	
+	if (kar =='{'){ 
+	d++;  
+	}
+	
+	else if ((kar == '}') && (d >= 1))  { 
+	d--;
+		} 
+	
+	if (kopieer == true){
+	uitvoer.put (kar);
+	}
+	
+
+	if (kar == '\n'){
+	uitvoer << string (startTabs, ' '), startRegel = true;
+	telRegels++;		
+	}
+	
+	
+	x = kar;  
+	while ((x >= '0') && (x <= '9')){
+	((nextKar >= '0')  && (nextKar =< '9' ))
+		
+	}
+	
+	
+	
+    int n, reverse = 0;
+    
+    cin >> n;
+    while(n != 0) {
+        int remainder = n%10;
+        reverse = reverse*10 + remainder;
+        n/=10;
+    }
+    
+    cout << "Reversed number = " << reverse;
+    
+    
+
+	
+	
+	 
+	
+	
+ }
+return 0;
+}
+
+
+
+int main (){
+
+
+return 0;
+}
+
+
